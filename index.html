@@ -64,7 +64,7 @@
     <article id="post-最靠谱的windows下搭建独立博客GitHub Pages与Hexo的教程" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2015/09/17/最靠谱的windows下搭建独立博客GitHub Pages与Hexo的教程/" class="article-date">
-  <time datetime="2015-09-17T08:19:16.348Z" itemprop="datePublished">2015-09-17</time>
+  <time datetime="2015-09-17T08:24:04.727Z" itemprop="datePublished">2015-09-17</time>
 </a>
     
   </div>
@@ -96,15 +96,15 @@
 <h3 id="设置用户信息">设置用户信息</h3><p>Git会根据用户的名字和邮箱来记录提交，所以需要设置下个人信息</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name <span class="string">"peiying"</span>//用户名</span><br><span class="line">$ git config --global user.email  <span class="string">"xxx@gmail.com"</span>//填写自己的邮箱</span><br></pre></td></tr></table></figure>
 <h2 id="创建Github_Pages">创建Github Pages</h2><p>我们需要使用Pages服务，通过用户名建立的username.github.io站。这个服务每个用户只能建立一个</p>
-<p>###github上建立仓库<br>登录github首页，点击右下角New Repository</p>
+<h3 id="github上建立仓库">github上建立仓库</h3><p>登录github首页，点击右下角New Repository</p>
 <p>填写项目信息：<br>project name：peiying.github.io<br>description： My Blog<br>注：Github Pages的Repository名字是特定的，比如我Github账号是peiying,那么我Github Pages Repository名字就是peiying.github.io</p>
 <p>点击Create Repository 完成创建。</p>
 <h2 id="使用hexo搭建博客">使用hexo搭建博客</h2><p>由于hexo是基于Node.js的框架，安装前需要先安装Node.js<br>Node.js的官网上竟然下载不了，非常坑爹，所以自行度娘吧</p>
-<p>###安装hexo<br>安装好Node.js后，安装hexo<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo</span><br></pre></td></tr></table></figure></p>
+<h3 id="安装hexo">安装hexo</h3><p>安装好Node.js后，安装hexo<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo</span><br></pre></td></tr></table></figure></p>
 <p>建立个文件夹来放hexo生成的项目文件，然后在文件夹中输入<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure></p>
 <p>然后生成静态页面并预览<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g &amp;&amp; hexo s</span><br></pre></td></tr></table></figure></p>
 <p>OK， 在浏览器中输入<code>localhost:4000</code>，一个hexo站点就展示在你面前了。</p>
-<p>###配置Hexo<br>在Hexo的目录结构下，其中<code>_config.yml</code>是整个站点的配置文件，<code>source/_drafts</code>是彩稿文件目录， <code>source/_posts</code>是发表的博文目录，其他的目录暂时不用管</p>
+<h3 id="配置Hexo">配置Hexo</h3><p>在Hexo的目录结构下，其中<code>_config.yml</code>是整个站点的配置文件，<code>source/_drafts</code>是彩稿文件目录， <code>source/_posts</code>是发表的博文目录，其他的目录暂时不用管</p>
 <p>这里需要在<code>_config.yml</code>配置发布到github上的一些参数，很重要！（之前在这出过很多错）<br>    deploy:<br>      type: git<br>      repository: git@github.com:peiying/peiying.github.io.git<br>      branch: master</p>
 <h3 id="发布博客">发布博客</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ hexo n  <span class="comment"># == hexo new 建立新文章，默认在_posts下，layout="draft"时发布的是草稿</span></span><br><span class="line">$ hexo p  <span class="comment"># == hexo publish 将_drafts下的文件放到_posts下，也就是发布草稿</span></span><br><span class="line">$ hexo g  <span class="comment"># == hexo generate 生成静态网页</span></span><br><span class="line">$ hexo s  <span class="comment"># == hexo server 启动预览服务器，开启-d选项时可以预览草稿</span></span><br><span class="line">$ hexo d  <span class="comment"># == hexo deploy 发布到远程服务器，开启--generate选项可以在deploy前自动generate</span></span><br></pre></td></tr></table></figure>
 <p>这些是hexo常用命令，我们可以用 n 创建新文章，默认在_posts下。也可以直接在目录下拷贝md文件，最后用命令<code>hexo d</code>发布到github上</p>
